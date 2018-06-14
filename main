@@ -1,5 +1,5 @@
 ############################################
-# This program combines Birches science data and housekeeping data
+# This program combines BIRCHES science data and housekeeping data
 # and converts the contents into PDS usable format.
 # Please review the config file before executing.
 #  
@@ -7,16 +7,23 @@
 # 
 ############################################
 
-# Read config file
+# TO DO: Read config file
+print "Reading config file..."
+print "File input source: %r" %(file_source)
+print "File output destination %r" %(file_destination)
 
-# Reads data in
+# TO DO: Reads data in
 # File source is determined by the config file
 
-# Append packets together
+# TO DO: Append packets together
 
-# Append Housekeeping data
+# TO DO: Append Housekeeping data
+# This transforms our file into a DATA RECORD
 
-# Convert from HEX to BIN
+# TO DO: Convert from HEX to BIN
 
-# Save file
+# TO DO: Labels? 
+# Labels need to be created and associated with a data record, this creates a BASIC PRODUCT
+
+# TO DO: Save file
 # File destination is determined by the config file
