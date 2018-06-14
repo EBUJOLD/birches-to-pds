@@ -1,0 +1,22 @@
+############################################
+# This program combines Birches science data and housekeeping data
+# and converts the contents into PDS usable format.
+# Please review the config file before executing.
+#  
+# Written by Emily Bujold and Sarah Wilczewski
+# 
+############################################
+
+# Read config file
+
+# Reads data in
+# File source is determined by the config file
+
+# Append packets together
+
+# Append Housekeeping data
+
+# Convert from HEX to BIN
+
+# Save file
+# File destination is determined by the config file
