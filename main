@@ -7,17 +7,20 @@
 # 
 ############################################
 
-DEBUG = True
-
-# TO DO: Read config file
+# Open config file 
+print "Reading config file... "
 from ConfigParser import SafeConfigParser
 parser = SafeConfigParser()
 parser.read('config.ini')
 
-print "Reading config file... "
+# Read config file contents and fill variables
+DEBUG = parser.get('settings' , 'config_debug')
+folderSource = parser.get('source' , 'config_source')
+folderDestination = parser.get('destination' , 'config_destination')
+
 if DEBUG :
-	print "Source folder: %s" %(parser.get('source' , 'folder_source'))
-	print "Destination folder: %s" %(parser.get('destination' , 'folder_destination'))
+	print "Source folder: %s" %(folderSource)
+	print "Destination folder: %s" %(folderDestination)
 
 
 # TO DO: Reads data in
