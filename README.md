@@ -1,1 +1,1 @@
-Read me is empty!
+Store Config file in the same directory as Main.

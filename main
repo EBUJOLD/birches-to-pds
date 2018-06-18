@@ -1,38 +1,59 @@
-############################################
+####################################################################################################
 # This program combines BIRCHES science data and housekeeping data
 # and converts the contents into PDS usable format.
 # Please review the config file before executing.
-#  
+# 
 # Written by Emily Bujold and Sarah Wilczewski
 # 
-############################################
+####################################################################################################
+# Read configuration file
+import binascii 			# Hex to binary converter library
 
-# Open config file 
-print "Reading config file... "
 from ConfigParser import SafeConfigParser
+
+print "Reading config file... "
 parser = SafeConfigParser()
 parser.read('config.ini')
 
 # Read config file contents and fill variables
-DEBUG = parser.get('settings' , 'config_debug')
+debugOn = parser.get('settings' , 'config_debug')
 folderSource = parser.get('source' , 'config_source')
 folderDestination = parser.get('destination' , 'config_destination')
 
-if DEBUG :
-	print "Source folder: %s" %(folderSource)
-	print "Destination folder: %s" %(folderDestination)
+# debugOn doesn't work
+if False :
+	print "\nSource folder: %s" %(folderSource)
+	print "Destination folder: %s\n" %(folderDestination)
 
+####################################################################################################
+# TO DO: Read data in
 
-# TO DO: Reads data in
-# File source is determined by the config file
+# Open source folder. This is where AIT outputs 'unwrapped' science data.
+openedFile = open(folderSource+"/dummy_ait_output.txt", "r")
 
+# I bet runtime error swill happen here. Be more clever.
+# For loop: range(start, stop, step)
+for i in xrange(0, 512 , 1):
+	file_contents = [openedFile.read(i)]
+
+# Count number of files. We'll use this to verify a successful append process.
+####################################################################################################
 
 # TO DO: Append packets together
+####################################################################################################
 
 # TO DO: Append Housekeeping data
 # This transforms our file into a DATA RECORD
 
+####################################################################################################
 # TO DO: Convert from HEX to BIN
+
+#file_contents = [1, 2 ,3, 4, 5] 
+
+# TO DO: make my print statement iterate through. A single line is 32 packets? 
+for i in range(0, (len(file_contents)), ):
+	print(file_contents[i])
+
 
 # TO DO: Labels? 
 # Labels need to be created and associated with a data record, this creates a BASIC PRODUCT
