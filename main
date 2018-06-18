@@ -31,18 +31,26 @@ if False :
 # Open source folder. This is where AIT outputs 'unwrapped' science data.
 openedFile = open(folderSource+"/dummy_ait_output.txt", "r")
 
-# I bet runtime error swill happen here. Be more clever.
+# I bet runtime errors will happen here. Be more clever.
 # For loop: range(start, stop, step)
 for i in xrange(0, 512 , 1):
 	file_contents = [openedFile.read(i)]
 
-# Count number of files. We'll use this to verify a successful append process.
+####################################################################################################
+# TO DO: Verify all packets present. This will help us determine we have a full spectra. 
+
+# Count number of files. We'll use this to verify a successful append process. 
+
+#QUESTION: What is best way to check (Segment Flag, Time Stamp or Exposure number)?
+#QUESTION: what happens if packets missing?
+# Check to ensure all 32 packets present 
 ####################################################################################################
 
-# TO DO: Append packets together
+# TO DO: Append Science packets together
 ####################################################################################################
 
 # TO DO: Append Housekeeping data
+# QUESTION: Do we need to extract relevant HK data?
 # This transforms our file into a DATA RECORD
 
 ####################################################################################################
@@ -54,10 +62,16 @@ for i in xrange(0, 512 , 1):
 for i in range(0, (len(file_contents)), ):
 	print(file_contents[i])
 
+####################################################################################################
 
-# TO DO: Labels? 
+# TO DO: Append data record to Archive File
+# QUESTION: Archive File should be saved with LID name. -ANSWER: Yes 
+# Archive File destination is determined by the config file
+
+# TO DO: Labels?
 # Labels need to be created and associated with a data record, this creates a BASIC PRODUCT
+
 
 # TO DO: Save file
 # QUESTION: File should be saved with LID name.
-# File destination is determined by the config file
+# Archive File destination is determined by the config file
