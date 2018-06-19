@@ -65,7 +65,7 @@ for i in range(0, (len(file_contents)), ):
 ####################################################################################################
 
 # TO DO: Append data record to Archive File
-# QUESTION: Archive File should be saved with LID name. -ANSWER: Yes 
+# QUESTION: Archive File should be saved with LID name. 
 # Archive File destination is determined by the config file
 
 # TO DO: Labels?
