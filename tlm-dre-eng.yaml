@@ -71,77 +71,81 @@
       type: MSB_U16
     - !Field
       name: LAST_Rej_Seq_Cnt
-      desc: 6 Last Rejected Command Sequence Count- Sequence count of last rejected command.
+      desc: 6[13:0] Last Rejected Command Sequence Count- Sequence count of last rejected command.
       bytes: '@prev'
       type: MSB_U16
     - !Field
       name: TIME_1PPS_Msw
-      desc: 7 DRE Time Stamp value at 1 Pulse Per Second event- Most significant 16 bits of 32 bit value.
+      desc: 7[15:0] DRE Time Stamp value at 1 Pulse Per Second event- Most significant 16 bits of 32 bit value.
       type: MSB_U16
     - !Field
       name: TIME_1PPS_Lsw
-      desc: 8 DRE Time Stamp value at 1 Pulse Per Second event- Least significant 16 bits of 32 bit value.
+      desc: 8[15:0] DRE Time Stamp value at 1 Pulse Per Second event- Least significant 16 bits of 32 bit value.
       type: MSB_U16
     - !Field
       name: SC_TIME_1PPS_Msw
-      desc: 9 Spacecraft Time Stamp value at 1 Pulse Per Second event- Most significant 16 bits of 32 bit value.
+      desc: 9[15:0] Spacecraft Time Stamp value at 1 Pulse Per Second event- Most significant 16 bits of 32 bit value.
       type: MSB_U16
     - !Field
       name: SC_TIME_1PPS_Lsw
-      desc: 10 Spacecraft Time Stamp value at 1 Pulse Per Second event- Least significant 16 bits of 32 bit value.
+      desc: 10[15:0] Spacecraft Time Stamp value at 1 Pulse Per Second event- Least significant 16 bits of 32 bit value.
       type: MSB_U16
     - !Field
       name: Reserved
-      desc: 11 SRAM Built in Test Status- reserved
+      desc: 11[15:7] SRAM Built in Test Status- reserved
       mask: 0x09
       type: MSB_U16
     - !Field
       name: SRAM_Bit_Status_TEST
-      desc: 11 Built In Test Mode- indicates the SRAM Mode selected.
+      desc: 11[6:4] Built In Test Mode- indicates the SRAM Mode selected.
       mask: 0x03
       bytes: '@prev'
       type: MSB_U16
     - !Field
       name: SRAM_Bit_Status_BUSY
-      desc: 11 Built In test Busy- when asserted the SRAM BIT function is busy.(Active High)
+      desc: 11[3] Built In test Busy- when asserted the SRAM BIT function is busy.(Active High)
       mask: 0x01
       bytes: '@prev'
       type: MSB_U16
     - !Field
       name: SRAM_Bit_Status_ERROR
-      desc: 11 Built In Test Error- when asserted the SRAM BIT function as detected an error. (Active High)
+      desc: 11[2] Built In Test Error- when asserted the SRAM BIT function as detected an error. (Active High)
       mask: 0x01
       bytes: '@prev'
       type: MSB_U16
     - !Field
       name: SRAM_Bit_Status_TEST_ADD
-      desc: 11 SRAM Built Address- most significant two bits of 17 bit value representing the last SRAM address accessed during built in test.
+      desc: 11[1:0] SRAM Built Address- most significant two bits of 17 bit value representing the last SRAM address accessed during built in test.
       mask: 0x02
       bytes: '@prev'
       type: MSB_U16      
     - !Field
       name: SRAM_Bit_Address
-      desc: 12 SRAM Built In Test Address- least significant 16 bits of 18 bit value representing the last SRAM address accessed during built in test.
+      desc: 12[15:0]? SRAM Built In Test Address- least significant 16 bits of 18 bit value representing the last SRAM address accessed during built in test.
       type: MSB_U16
     - !Field
       name: SRAM_Config_BLOCK
-      desc: 13 SRAM Block- indicates the last SRAM block requested in Dump command.
+      desc: 13[15:4] SRAM Block- indicates the last SRAM block requested in Dump command.
       type: MSB_U16
     - !Field
       name: SRAM_Config
-      desc: 13 SRAM Configuration Status- reserved
+      desc: 13[3:2] SRAM Configuration Status- Reserved
       type: MSB_U16
     - !Field
       name: SRAM_Config
-      desc: 13 SRAM Bank Select- indicates the current SRAM Bank selected.
+      desc: 13[1:0] SRAM Bank Select- indicates the current SRAM Bank selected.
       type: MSB_U16
     - !Field
       name: H1RG_Config
-      desc: 14 H1RG Configuration Status
+      desc: 14[15] CPLIN- the logic level driven to the LM98640QML CPLIN pin.
+      type: MSB_U16
+    - !Field
+      name: H1RG_Config
+      desc: 14[14] H1RG Configuration- Reserved
       type: MSB_U16
     - !Field
       name: EXP_Num
-      desc: Exposure Number- Number of exposures since last reset.  Rolls over to zero. Number of Exposures
+      desc: 15[15:0]Exposure Number- Number of exposures since last reset.  Rolls over to zero. Number of Exposures
       type: MSB_U16
     - !Field
       name: OBS_Num
