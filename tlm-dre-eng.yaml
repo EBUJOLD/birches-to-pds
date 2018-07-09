@@ -240,318 +240,373 @@
       desc: 
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm01
+      desc: 77[15:8] Detector ADC Register 1 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm01
+      desc: 77[7:0] Detector ADC Register 0 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm23
+      desc: 78[15:8] Detector ADC Register 3 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm23
+      desc: 78[7:0] Detector ADC Register 2 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm45
+      desc: 79[15:8] Detector ADC Register 5 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm45
+      desc: 79[7:0] Detector ADC Register 4 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm67
+      desc: 80[15:8] Detector ADC Register 7 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm67
+      desc: 80[7:0] Detector ADC Register 6 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm89
+      desc: 81[15:8] Detector ADC Register 9 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm89
+      desc: 81[7:0] Detector ADC Register 8 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm1011
+      desc: 82[15:8] Detector ADC Register 11 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm1011
+      desc: 82[7:0] Detector ADC Register 10 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm1213
+      desc: 83[15:8] Detector ADC Register 13 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm1213
+      desc: 83[7:0] Detector ADC Register 12 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm1415
+      desc: 84[15:8] Detector ADC Register 15 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm1415
+      desc: 84[7:0] Detector ADC Register 14 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm1617
+      desc: 85[15:8] Detector ADC Register 17 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm1617
+      desc: 85[7:0] Detector ADC Register 16 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm1819
+      desc: 86[15:8] Detector ADC Register 19 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm1819
+      desc: 86[7:0] Detector ADC Register 18 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm2021
+      desc: 87[15:8] Detector ADC Register 21 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm2021
+      desc: 87[7:0] Detector ADC Register 20 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm2223
+      desc: 88[15:8] Detector ADC Register 23 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm2223
+      desc: 88[7:0] Detector ADC Register 22 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm2425
+      desc: 89[15:8] Detector ADC Register 25 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm2425
+      desc: 89[7:0] Detector ADC Register 24 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm2627
+      desc: 90[15:8] Detector ADC Register 27 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm2627
+      desc: 90[7:0] Detector ADC Register 26 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
+      type: MSB_U16- !Field
+      name: DET_ADC_Tlm2829
+      desc: 91[15:8] Detector ADC Register 29 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm2829
+      desc: 91[7:0] Detector ADC Register 28 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm3031
+      desc: 92[15:8] Detector ADC Register 31 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm3031
+      desc: 92[7:0] Detector ADC Register 30 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm3233
+      desc: 93[15:8] Detector ADC Register 33 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm3233
+      desc: 93[7:0] Detector ADC Register 32 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm3435
+      desc: 94[15:8] Detector ADC Register 35 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm3435
+      desc: 94[7:0] Detector ADC Register 34 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm3637
+      desc: 95[15:8] Detector ADC Register 37 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm3637
+      desc: 95[7:0] Detector ADC Register 36 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm3839
+      desc: 96[15:8] Detector ADC Register 39 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm3839
+      desc: 96[7:0] Detector ADC Register 38 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm4041
+      desc: 97[15:8] Detector ADC Register 41 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm4041
+      desc: 97[7:0] Detector ADC Register 40 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm4243
+      desc: 98[15:8] Detector ADC Register 43 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm4243
+      desc: 98[7:0] Detector ADC Register 42 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm4445
+      desc: 99[15:8] Detector ADC Register 45 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm4445
+      desc: 99[7:0] Detector ADC Register 44 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm4647
+      desc: 100[15:8] Detector ADC Register 47 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm4647
+      desc: 100[7:0] Detector ADC Register 46 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm4849
+      desc: 101[15:8] Detector ADC Register 49 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm4849
+      desc: 101[7:0] Detector ADC Register 48 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm5051
+      desc: 102[15:8] Detector ADC Register 51 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm5051
+      desc: 102[7:0] Detector ADC Register 50 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm5253
+      desc: 103[15:8] Detector ADC Register 53 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm5253
+      desc: 103[7:0] Detector ADC Register 52 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm5455
+      desc: 104[15:8] Detector ADC Register 55 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm5455
+      desc: 104[7:0] Detector ADC Register 54 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm5657
+      desc: 105[15:8] Detector ADC Register 57 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm5657
+      desc: 105[7:0] Detector ADC Register 56 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm5859
+      desc: 106[15:8] Detector ADC Register 59 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm5859
+      desc: 106[7:0] Detector ADC Register 58 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm6061
+      desc: 107[15:8] Detector ADC Register 61 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm6061
+      desc: 107[7:0] Detector ADC Register 60 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm6263
+      desc: 108[15:8] Detector ADC Register 63 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DET_ADC_Tlm6263
+      desc: 108[7:0] Detector ADC Register 62 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: AFS_WAVE
+      desc: 109[15:14] Reserved
+      mask: 0x02
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: AFS_WAVE
+      desc: 109[13:0] AFS Wave Period. Resolution 1 micro-second
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: AFS_RUN_COUNT
+      desc: 110[15:0] AFS Run Count – indicates the number of waves to generate from the last command.
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: AFS_PHASE_DELAY
+      desc: 111[15:8] Reserved
+      mask: 0x08
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: AFS_PHASE_DELAY
+      desc: 111[7:0] AFS Phase delay value – indicates the number of 100 ns clocks between changing the AFS Motor Control Phase signals.
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DOOR_WAVE
+      desc: 112[15:14] Reserved
+      mask: 0x02
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: DOOR_WAVE
+      desc: 112[13:0] Door motor Wave Period. Resolution 1 micro-second
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: Frame 1 Pixel
+      desc: 113[15:0] Frame 1 Pixel, the FlatSat mode frame 1 pixel value.
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: Frame 2 Pixel
+      desc: 114[15:0] Frame 2 Pixel, the FlatSat mode frame 2 pixel value.
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: FLATS_SAT_MODE
+      desc: 115[15:1] Reserved
+      mask: 0x0e
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
-      type: MSB_U16
-    - !Field
-      name: 
-      desc: 
-      type: MSB_U16
-    - !Field
-      name: 
-      desc: 
-      type: MSB_U16
-    - !Field
-      name: 
-      desc: 
-      type: MSB_U16
-    - !Field
-      name: 
-      desc: 
-      type: MSB_U16
-    - !Field
-      name: 
-      desc: 
+      name: FLATS_SAT_MODE
+      desc: 115[0] FLATS_SAT_MODE – indicates the current mode of the DRE FPGA. 
+      bytes: '@prev'
       type: MSB_U16
