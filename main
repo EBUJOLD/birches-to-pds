@@ -21,7 +21,7 @@ folderSource = parser.get('source' , 'config_source')
 folderDestination = parser.get('destination' , 'config_destination')
 
 # debugOn doesn't work
-if False :
+if debugOn :
 	print "\nSource folder: %s" %(folderSource)
 	print "Destination folder: %s\n" %(folderDestination)
 
