@@ -1,0 +1,553 @@
+- !Packet
+  name: DRE_ENG_DATA
+  desc: 
+  ccsds:
+   apid: 0x02FF
+  fields:
+    - !Field
+      name: FPGA_VER
+      desc: The FPGA Version number
+      type: MSB_U16
+    - !Field
+      name: CMD_Acc_Cntr
+      desc: Command Accepted Count- Counter that is incremented when the command passes verification and is executed.  Verification includes; CCSDS Primary Header (fixed values, APID range, sequence count, packet length) and Command CRC verification. Counter rolls over to 0x0001 after 65535. 
+      type: MSB_U16
+    - !Field
+      name: CMD_Rcv_Cntr
+      desc: Command Received Counter- Counter that is incremented when any command is received. Counter rolls over to 0x0001 after 65535.
+      type: MSB_U16
+    - !Field
+      name: Reserved
+      desc: LAST_Ac_Seq_Cnt Reserved Bits
+      mask: 0x02
+      type: MSB_U16
+    - !Field
+      name: LAST_Acc_Seq_Cnt
+      desc: Last Accepted Command Sequence Count- Sequence Count that represents of the last accepted command.
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: CMD_Err_Cnt1_CRC
+      desc: CRC Error Count- counter increments each time a CRC error detected in a command packet. Counter terminal counts at 15.
+      mask: 0x04
+      type: MSB_U16
+    - !Field
+      name: CMD_Err_Cnt1_SEQ
+      desc: Sequence Count Error Count- counter increments each time a sequence count error detected in command packet. Counter terminal counts at 15.
+      mask: 0x04
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: CMD_Err_Cnt1_REJ
+      desc: Command Rejected Count- counter increments each time a command is rejected. Count terminal counts at 255.
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: CMD_Err_Cnt2_EOP
+      desc: End of Packet Counter- counter increments command packet does not have the correct number of bytes. Counter terminal counts at 15.
+      mask: 0x04
+      type: MSB_U16
+    - !Field
+      name: CMD_Err_Cnt2_SPI
+      desc: SPI Error Counter- counter increments if the command packet is not an even number of 8 bit values. Counter terminal counts at 15.
+      mask: 0x04
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: CMD_Err_Cnt2_APID
+      desc: APID Error Counter- counter increments when command packet contains invalid APID value. Counter terminal counts at 15.
+      mask: 0x04
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: CMD_Err_Cnt2
+      desc: Length Error Counter- counter increments when CCSDS packet length error detected in command packet. Counter terminal counts at 15.
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: Reserved
+      desc: LAST_Ac_Seq_Cnt Reserved Bits
+      mask: 0x02
+      type: MSB_U16
+    - !Field
+      name: LAST_Rej_Seq_Cnt
+      desc: Last Rejected Command Sequence Count- Sequence count of last rejected command.
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: TIME_1PPS_Msw
+      desc: DRE Time Stamp value at 1 Pulse Per Second event- Most significant 16 bits of 32 bit value.
+      type: MSB_U16
+    - !Field
+      name: TIME_1PPS_Lsw
+      desc: DRE Time Stamp value at 1 Pulse Per Second event- Least significant 16 bits of 32 bit value.
+      type: MSB_U16
+    - !Field
+      name: SC_TIME_1PPS_Msw
+      desc: Spacecraft Time Stamp value at 1 Pulse Per Second event- Most significant 16 bits of 32 bit value.
+      type: MSB_U16
+    - !Field
+      name: SC_TIME_1PPS_Lsw
+      desc: Spacecraft Time Stamp value at 1 Pulse Per Second event- Least significant 16 bits of 32 bit value.
+      type: MSB_U16
+    - !Field
+      name: Reserved
+      desc: Reserved
+      mask: 0x09
+      type: MSB_U16
+    - !Field
+      name: SRAM_Bit_Status_TEST
+      desc: Built In Test Mode- indicates the SRAM Mode selected.
+      mask: 0x03
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: SRAM_Bit_Status_BUSY
+      desc: Built In test Busy- when asserted the SRAM BIT function is busy.(Active High)
+      mask: 0x01
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: SRAM_Bit_Status_ERROR
+      desc: Built In Test Error- when asserted the SRAM BIT function as detected an error. (Active High)
+      mask: 0x01
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: SRAM_Bit_Status_TEST_ADD
+      desc: SRAM Built Address- most significant two bits of 17 bit value representing the last SRAM address accessed during built in test.
+      mask: 0x02
+      bytes: '@prev'
+      type: MSB_U16      
+    - !Field
+      name: SRAM_Bit_Address
+      desc: SRAM Built In Test Address- least significant 16 bits of 18 bit value representing the last SRAM address accessed during built in test.
+      type: MSB_U16
+    - !Field
+      name: SRAM_Config_BLOCK
+      desc: SRAM Block- indicates the last SRAM block requested in Dump command.
+      type: MSB_U16
+    - !Field
+      name: SRAM_Config
+      desc: SRAM Configuration Status
+      type: MSB_U16
+    - !Field
+      name: SRAM_Config
+      desc: SRAM Configuration Status
+      type: MSB_U16
+    - !Field
+      name: H1RG_Config
+      desc: H1RG Configuration Status
+      type: MSB_U16
+    - !Field
+      name: EXP_Num
+      desc: Exposure Number- Number of exposures since last reset.  Rolls over to zero. Number of Exposures
+      type: MSB_U16
+    - !Field
+      name: OBS_Num
+      desc: Observation Number- Number of observations since last reset.  Rolls over to zero. Number of Observations
+      type: MSB_U16
+    - !Field
+      name: INT_Time
+      desc: Integration Time- The number of 10KHz (100us) clocks to wait during integration. Integration time
+      type: MSB_U16
+    - !Field
+      name: RST_INT_Time
+      desc: Reset Integration Time- Time to wait between the Detector Reset and the Reset Frame to allow charge to accumulate on the detector.
+      type: MSB_U16
+    - !Field
+      name: EXP_Pause_Time
+      desc: Exposure Pause Time- time to wait between exposures.
+      type: MSB_U16
+    - !Field
+      name: VCLK_Skip1_Start
+      desc: VCLK Skip 1 Start configuration value.
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
+    - !Field
+      name: 
+      desc: 
+      type: MSB_U16
