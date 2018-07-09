@@ -17,7 +17,7 @@
       desc: 2[15:0] Command Received Counter- Counter that is incremented when any command is received. Counter rolls over to 0x0001 after 65535.
       type: MSB_U16
     - !Field
-      name: Reserved
+      name: LAST_Ac_Seq_Cnt_Reserved
       desc: 3[15:14] LAST_Ac_Seq_Cnt Reserved Bits
       mask: 0x02
       type: MSB_U16
@@ -65,8 +65,8 @@
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: Reserved
-      desc: 6[15:14] LAST_Ac_Seq_Cnt Reserved Bits
+      name: LAST_Rej_Seq_Cnt_Reserved
+      desc: 6[15:14] LAST_Rej_Seq_Cnt Reserved Bits
       mask: 0x02
       type: MSB_U16
     - !Field
@@ -91,7 +91,7 @@
       desc: 10[15:0] Spacecraft Time Stamp value at 1 Pulse Per Second event- Least significant 16 bits of 32 bit value.
       type: MSB_U16
     - !Field
-      name: Reserved
+      name: SRAM_Bit_Status_Reserved
       desc: 11[15:7] SRAM Built in Test Status- reserved
       mask: 0x09
       type: MSB_U16
@@ -126,114 +126,468 @@
     - !Field
       name: SRAM_Config_BLOCK
       desc: 13[15:4] SRAM Block- indicates the last SRAM block requested in Dump command.
+      mask: 0x0B
       type: MSB_U16
     - !Field
-      name: SRAM_Config
-      desc: 13[3:2] SRAM Configuration Status- Reserved
+      name: SRAM_Config_RESERVED
+      desc: 13[3:2] SRAM Configuration Status Reserved
+      mask: 0x02
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: SRAM_Config
+      name: SRAM_Config_BANK
       desc: 13[1:0] SRAM Bank Select- indicates the current SRAM Bank selected.
+      mask: 0x02
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: H1RG_Config
-      desc: 14[15] CPLIN- the logic level driven to the LM98640QML CPLIN pin.
+      name: H1RG_Config_CPLIN
+      desc: 14[15] CPLIN- the logic level driven to the LM98640QML CPLIN pin
+      mask: 0x01
       type: MSB_U16
     - !Field
-      name: H1RG_Config
-      desc: 14[14] H1RG Configuration- Reserved
+      name: H1RG_Config_Reserved
+      desc: 14[14] H1RG Configuration Status Reserved
+      mask: 0x01
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: H1RG_Config_LATENCY
+      desc: 14[13:8] Detector Pixel Latency- indicates the latency mode configuration for the detector pixel ADC interface.
+      mask: 0x06
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: H1RG_Config_Reserved_2
+      desc: 14[7] H1RG Configuration Status Reserved
+      mask: 0x01
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: H1RG_Config_AVG
+      desc: 14[6:4] Detector Pixel Average- indicates the average mode configuration of the detector pixel ADC interface.
+      mask: 0x03
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: H1RG_Config_MODE
+      desc: 14[3:2] H1RG Mode Operating- indicates the current operating mode of the Detector Readout Electronics control logic
+      mask: 0x02
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: H1RG_Config_CMD
+      desc: 14[1:0] H1RG Mode Command- indicates the current commanded mode of the Detector Readout Electronics control logic
+      mask: 0x02
+      bytes: '@prev'
       type: MSB_U16
     - !Field
       name: EXP_Num
-      desc: 15[15:0]Exposure Number- Number of exposures since last reset.  Rolls over to zero. Number of Exposures
+      desc: 15[15:0] Exposure Number- Number of exposures since last reset.  Rolls over to zero. Number of Exposures
       type: MSB_U16
     - !Field
       name: OBS_Num
-      desc: Observation Number- Number of observations since last reset.  Rolls over to zero. Number of Observations
+      desc: 16[15:0] Observation Number- Number of observations since last reset.  Rolls over to zero. Number of Observations
       type: MSB_U16
     - !Field
       name: INT_Time
-      desc: Integration Time- The number of 10KHz (100us) clocks to wait during integration. Integration time
+      desc: 17[15:0] Integration Time- The number of 10KHz (100us) clocks to wait during integration. Integration time
       type: MSB_U16
     - !Field
       name: RST_INT_Time
-      desc: Reset Integration Time- Time to wait between the Detector Reset and the Reset Frame to allow charge to accumulate on the detector.
+      desc: 18[15:0] Reset Integration Time- Time to wait between the Detector Reset and the Reset Frame to allow charge to accumulate on the detector.
       type: MSB_U16
     - !Field
       name: EXP_Pause_Time
-      desc: Exposure Pause Time- time to wait between exposures.
+      desc: 19[15:0] Exposure Pause Time- time to wait between exposures.
+      type: MSB_U16
+    - !Field
+      name: VCLK_Skip1_Start_Reserved
+      desc: 20[15:11] VCLK Skip 1 Start configuration value Reserved
+      mask: 0x05
       type: MSB_U16
     - !Field
       name: VCLK_Skip1_Start
-      desc: 20 VCLK Skip 1 Start configuration value.
+      desc: 20[10:0] VCLK Skip 1 Start configuration value Reserved
+      mask: 0x0B
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: VCLK_Skip1_Stop_Reserved
+      desc: 21[15:11] VCLK Skip 1 Stop configuration value Reserved
+      mask: 0x05
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: VCLK_Skip1_Stop
+      desc: 21[10:0] VCLK Skip 1 Stop configuration value Reserved
+      mask: 0x0B
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: VCLK_Skip2_Start_Reserved
+      desc: 22[15:11] VCLK Skip 2 Start configuration value Reserved
+      mask: 0x05
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: VCLK_Skip2_Start
+      desc: 22[10:0] VCLK Skip 2 Start configuration value Reserved
+      mask: 0x0B
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: VCLK_Skip2_Stop_Reserved
+      desc: 23[15:11] VCLK Skip 2 Stop configuration value Reserved
+      mask: 0x05
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: VCLK_Skip2_Stop
+      desc: 23[10:0] VCLK Skip 2 Stop configuration value Reserved
+      mask: 0x0B
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: VCLK_Skip3_Start_Reserved
+      desc: 24[15:11] VCLK Skip 3 Start configuration value Reserved
+      mask: 0x05
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: VCLK_Skip3_Start
+      desc: 24[10:0] VCLK Skip 3 Start configuration value Reserved
+      mask: 0x0B
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: VCLK_Skip3_Stop_Reserved
+      desc: 25[15:11] VCLK Skip 3 Stop configuration value Reserved
+      mask: 0x05
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: VCLK_Skip3_Stop
+      desc: 25[10:0] VCLK Skip 3 Stop configuration value Reserved
+      mask: 0x0B
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: VCLK_Skip4_Start_Reserved
+      desc: 26[15:11] VCLK Skip 4 Start configuration value Reserved
+      mask: 0x05
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: VCLK_Skip4_Start
+      desc: 26[10:0] VCLK Skip 4 Start configuration value Reserved
+      mask: 0x0B
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: VCLK_Skip4_Stop_Reserved
+      desc: 27[15:11] VCLK Skip 4 Stop configuration value Reserved
+      mask: 0x05
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: VCLK_Skip4_Stop
+      desc: 27[10:0] VCLK Skip 4 Stop configuration value Reserved
+      mask: 0x0B
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: VCLK_Skip5_Start_Reserved
+      desc: 28[15:11] VCLK Skip 5 Start configuration value Reserved
+      mask: 0x05
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: VCLK_Skip5_Start
+      desc: 28[10:0] VCLK Skip 5 Start configuration value Reserved
+      mask: 0x0B
+      bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: VCLK_Skip5_Stop_Reserved
+      desc: 29[15:11] VCLK Skip 5 Stop configuration value Reserved
+      mask: 0x05
+      type: MSB_U16
+    - !Field
+      name: VCLK_Skip5_Stop
+      desc: 29[10:0] VCLK Skip 5 Stop configuration value Reserved
+      mask: 0x0B
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: VCLK_Skip6_Start_Reserved
+      desc: 30[15:11] VCLK Skip 6 Start configuration value Reserved
+      mask: 0x05
+      type: MSB_U16
+    - !Field
+      name: VCLK_Skip6_Start
+      desc: 30[10:0] VCLK Skip 6 Start configuration value Reserved
+      mask: 0x0B
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: VCLK_Skip6_Stop_Reserved
+      desc: 31[15:11] VCLK Skip 6 Stop configuration value Reserved
+      mask: 0x05
+      type: MSB_U16
+    - !Field
+      name: VCLK_Skip6_Stop
+      desc: 31[10:0] VCLK Skip 6 Stop configuration value Reserved
+      mask: 0x0B
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: VCLK_Skip7_Start_Reserved
+      desc: 32[15:11] VCLK Skip 7 Start configuration value Reserved
+      mask: 0x05
+      type: MSB_U16
+    - !Field
+      name: VCLK_Skip7_Start
+      desc: 32[10:0] VCLK Skip 7 Start configuration value Reserved
+      mask: 0x0B
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: VCLK_Skip7_Stop_Reserved
+      desc: 33[15:11] VCLK Skip 7 Stop configuration value Reserved
+      mask: 0x05
+      type: MSB_U16
+    - !Field
+      name: VCLK_Skip7_Stop
+      desc: 33[10:0] VCLK Skip 7 Stop configuration value Reserved
+      mask: 0x0B
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: VCLK_Skip8_Start_Reserved
+      desc: 34[15:11] VCLK Skip 7 Start configuration value Reserved
+      mask: 0x05
+      type: MSB_U16
+    - !Field
+      name: VCLK_Skip8_Start
+      desc: 34[10:0] VCLK Skip 7 Start configuration value Reserved
+      mask: 0x0B
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: VCLK_Skip8_Stop_Reserved
+      desc: 35[15:11] VCLK Skip 7 Stop configuration value Reserved
+      mask: 0x05
+      type: MSB_U16
+    - !Field
+      name: VCLK_Skip8_Stop
+      desc: 35[10:0] VCLK Skip 7 Stop configuration value Reserved
+      mask: 0x0B
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: Pixel_Sat_Cnt
+      desc: 36[15:0] Detector Pixel Saturation Counter – increments when saturated pixel read on Detector ADC Interface. Counter terminal counts at 65535.
+      type: MSB_U16
+    - !Field
+      name: DET_DSUB_Reserved
+      desc: 37[15:12] DET_DSUB Reserved
+      mask: 0x04
+      type: MSB_U16
+    - !Field
+      name: DET_DSUB
+      desc: 37[11:0] Detector Bias Voltage
+      mask: 0x0C
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: DET_Vreset_Reserved
+      desc: 38[15:12] DET_Vreset Reserved
+      mask: 0x04
+      type: MSB_U16
+    - !Field
+      name: DET_Vreset
+      desc: 38[11:0] Detector Bias Voltage
+      mask: 0x0C
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: DET_VbiasGate_Reserved
+      desc: 39[15:12] DET_VbiasGate Reserved
+      mask: 0x04
+      type: MSB_U16
+    - !Field
+      name: DET_VbiasGate
+      desc: 39[11:0] Detector Bias Voltage
+      mask: 0x0C
+      bytes: '@prev'  
+      type: MSB_U16
+    - !Field
+      name: DET_Drain_Reserved
+      desc: 40[15:12] DET_Drain Reserved
+      mask: 0x04
+      type: MSB_U16
+    - !Field
+      name: DET_Drain
+      desc: 40[11:0] Detector Bias Voltage
+      mask: 0x0C
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: DET_VbiasPower_Reserved
+      desc: 41[15:12] DET_VbiasPower Reserved
+      mask: 0x04
+      type: MSB_U16
+    - !Field
+      name: DET_VbiasPower
+      desc: 41[11:0] Detector Bias Voltage
+      mask: 0x0C
+      bytes: '@prev' 
+      type: MSB_U16
+    - !Field
+      name: DET_Temp_Reserved
+      desc: 42[15:12] DET_Temp Reserved
+      mask: 0x04
+      type: MSB_U16
+    - !Field
+      name: DET_Temp
+      desc: 42[11:0] SCA Temp Detector Temperature
+      mask: 0x0C
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: OBox_Temp_Reserved
+      desc: 43[15:12] OBox_Temp Reserved
+      mask: 0x04
+      type: MSB_U16
+    - !Field
+      name: OBox_Temp
+      desc: 43[11:0] Optical Box Temperature
+      mask: 0x0C
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: DRE_Temp_Reserved
+      desc: 44[15:12] DRE_Temp Reserved
+      mask: 0x04
+      type: MSB_U16
+    - !Field
+      name: DRE_Temp
+      desc: 44[11:0] 10K Thermistor DRE PDU Temperature
+      mask: 0x0C
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: DAC_Tlm_Chan0
+      desc: 45[15:0] Detector Bias Volt ADC value – the Channel 0 register value read from RHDAC12. Refer to RHDAC12 ASIC datasheet for more information.
+      type: MSB_U16
+    - !Field
+      name: DAC_Tlm_Chan1
+      desc: 46[15:0] Detector Bias Volt ADC value – the Channel 1 register value read from RHDAC12. Refer to RHDAC12 ASIC datasheet for more information.
+      type: MSB_U16
+    - !Field
+      name: DAC_Tlm_Chan2
+      desc: 47[15:0] Detector Bias Volt ADC value – the Channel 2 register value read from RHDAC12. Refer to RHDAC12 ASIC datasheet for more information.
+      type: MSB_U16
+    - !Field
+      name: DAC_Tlm_Chan3
+      desc: 48[15:0] - Detector Bias Volt ADC value – the Channel 3 register value read from RHDAC12. Refer to RHDAC12 ASIC datasheet for more information.
+      type: MSB_U16
+    - !Field
+      name: AFS_Cur_Pos
+      desc: 49[15:0] Adjustable Field Stop current position.
+      type: MSB_U16
+    - !Field
+      name: AFS_Cmd_Pos
+      desc: 50[15:0] Adjustable Field Stop commanded position.
+      type: MSB_U16
+    - !Field
+      name: AFS_Status_PAR
+      desc: 51[15:12] Cryo Cooler Parity Error Count – increments when a Receive parity error detected on Cryo-Cooler interface. This counter terminal counts at 15.
+      mask: 0x04
+      type: MSB_U16
+    - !Field
+      name: AFS_Status_CLOSE
+      desc: 51[11] Door Close Limit status bit
+      mask: 0x01
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: AFS_Status_OPEN
+      desc: 51[10] Door Open Limit status bit
+      type: MSB_U16
+    - !Field
+      name: AFS_Status_DOOR_BUSY
+      desc: 51[9] Door Motor Move Busy bit (Active High)
+      mask: 0x01
+      bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: AFS_Status_PPS
+      desc: 51[8] One Pulse Per Second Time out status bit. (Active High)
+      mask: 0x01
+      bytes: '@prev' 
+      type: MSB_U16
+    - !Field
+      name: AFS_Status_LOST
+      desc: 51[7] AFS Lost status bit (Active High)
+      mask: 0x01
+      bytes: '@prev' 
+      type: MSB_U16
+    - !Field
+      name: AFS_Status_CMD_TO
+      desc: 51[6] AFS Command Timeout status bit (Active High)
+      mask: 0x01
+      bytes: '@prev' 
+      type: MSB_U16
+    - !Field
+      name: AFS_Status_CMD_ERR
+      desc: 51[5] AFS Command Error status bit (Active High)
+      mask: 0x01
+      bytes: '@prev' 
+      type: MSB_U16
+    - !Field
+      name: AFS_Status_STEPPER
+      desc: 51[4] Stepper Limit Max status bit.
+      mask: 0x01
+      bytes: '@prev' 
+      type: MSB_U16
+    - !Field
+      name: AFS_Status_Reserved
+      desc: 51[3] AFS_Status Reserved 
+      mask: 0x01
+      bytes: '@prev' 
+      type: MSB_U16
+    - !Field
+      name: AFS_Status_CLK_FRQ
+      desc: 51[2] Science Telemetry Clock Frequency Select. ‘0’ => 1 MHz, ‘1’ => 5 MHz 
+      mask: 0x01
+      bytes: '@prev' 
+      type: MSB_U16
+    - !Field
+      name: AFS_Status_BUSY
+      desc: 51[1] AFS Move Busy status bit (Active High)
+      mask: 0x01
+      bytes: '@prev' 
+      type: MSB_U16
+    - !Field
+      name: AFS_Status_STEPPER_HOME
+      desc: 51[0] Stepper Limit Home status bit.
+      mask: 0x01
+      bytes: '@prev' 
+      type: MSB_U16
+    - !Field
+      name: CRYO_Cmd_Addr_TO
+      desc: 52[15:12] Cryo Cooler Response Timeout Count – increments when 500 milli-second timer terminal counts before receiving a response packet from Cryo-Cooler. This counter terminal counts at 15.
+      mask: 0x04
+      type: MSB_U16
+    - !Field
+      name: CRYO_Cmd_Addr_CS
+      desc: 52[11:8] Cryo-Cooler Checksum Error Count – increments when checksum mismatch on packet received from Cryo-Cooler. This counter terminal counts at 15.
+      mask: 0x04
+      bytes: '@prev' 
+      type: MSB_U16
+    - !Field
+      name: CRYO_Cmd_Addr_WRITE
+      desc: 53[7:0] Cryo Cooler Write Command Address – indicates the last Cryo Cooler write command address. 
+      mask: 0x08
+      bytes: '@prev' 
+      type: MSB_U16
+    - !Field
+      name: CRYO_Cmd_Data
+      desc: 53[15:0] Cryo Cooler Write Command Data – indicates the last Cryo Cooler write command data word.
       type: MSB_U16
     - !Field
       name: CRYO_Tlm0
@@ -328,327 +682,327 @@
       desc: 76[15:0] Cryo Cooler MOTOR_B_AMPLITUDE register read from Cryo Cooler. Refer to Cryo Cooler ICD for more information.
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm01
+      name: DET_ADC_Tlm01_Reg1
       desc: 77[15:8] Detector ADC Register 1 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm01
+      name: DET_ADC_Tlm01_Reg0
       desc: 77[7:0] Detector ADC Register 0 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm23
+      name: DET_ADC_Tlm23_Reg3
       desc: 78[15:8] Detector ADC Register 3 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm23
+      name: DET_ADC_Tlm23_Reg2
       desc: 78[7:0] Detector ADC Register 2 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm45
+      name: DET_ADC_Tlm45_Reg5
       desc: 79[15:8] Detector ADC Register 5 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm45
+      name: DET_ADC_Tlm45_Reg4
       desc: 79[7:0] Detector ADC Register 4 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm67
+      name: DET_ADC_Tlm67_Reg7
       desc: 80[15:8] Detector ADC Register 7 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm67
+      name: DET_ADC_Tlm67_Reg6
       desc: 80[7:0] Detector ADC Register 6 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm89
+      name: DET_ADC_Tlm89_Reg9
       desc: 81[15:8] Detector ADC Register 9 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm89
+      name: DET_ADC_Tlm89_Reg8
       desc: 81[7:0] Detector ADC Register 8 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm1011
+      name: DET_ADC_Tlm1011_Reg11
       desc: 82[15:8] Detector ADC Register 11 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm1011
+      name: DET_ADC_Tlm1011_Reg10
       desc: 82[7:0] Detector ADC Register 10 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm1213
+      name: DET_ADC_Tlm1213_Reg13
       desc: 83[15:8] Detector ADC Register 13 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm1213
+      name: DET_ADC_Tlm1213_Reg12
       desc: 83[7:0] Detector ADC Register 12 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm1415
+      name: DET_ADC_Tlm1415_Reg15
       desc: 84[15:8] Detector ADC Register 15 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm1415
+      name: DET_ADC_Tlm1415_Reg14
       desc: 84[7:0] Detector ADC Register 14 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm1617
+      name: DET_ADC_Tlm1617_Reg17
       desc: 85[15:8] Detector ADC Register 17 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm1617
+      name: DET_ADC_Tlm1617_Reg16
       desc: 85[7:0] Detector ADC Register 16 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm1819
+      name: DET_ADC_Tlm1819_Reg18
       desc: 86[15:8] Detector ADC Register 19 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm1819
+      name: DET_ADC_Tlm1819_Reg19
       desc: 86[7:0] Detector ADC Register 18 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm2021
+      name: DET_ADC_Tlm2021_Reg21
       desc: 87[15:8] Detector ADC Register 21 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm2021
+      name: DET_ADC_Tlm2021_Reg22
       desc: 87[7:0] Detector ADC Register 20 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm2223
+      name: DET_ADC_Tlm2223_Reg23
       desc: 88[15:8] Detector ADC Register 23 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm2223
+      name: DET_ADC_Tlm2223_Reg22
       desc: 88[7:0] Detector ADC Register 22 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm2425
+      name: DET_ADC_Tlm2425_Reg25
       desc: 89[15:8] Detector ADC Register 25 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm2425
+      name: DET_ADC_Tlm2425_Reg24
       desc: 89[7:0] Detector ADC Register 24 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm2627
+      name: DET_ADC_Tlm2627_Reg27
       desc: 90[15:8] Detector ADC Register 27 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm2627
+      name: DET_ADC_Tlm2627_Reg26
       desc: 90[7:0] Detector ADC Register 26 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm2829
+      name: DET_ADC_Tlm2829_Reg29
       desc: 91[15:8] Detector ADC Register 29 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm2829
+      name: DET_ADC_Tlm2829_Reg28
       desc: 91[7:0] Detector ADC Register 28 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm3031
+      name: DET_ADC_Tlm3031_Reg31
       desc: 92[15:8] Detector ADC Register 31 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm3031
+      name: DET_ADC_Tlm3031_Reg30
       desc: 92[7:0] Detector ADC Register 30 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm3233
+      name: DET_ADC_Tlm3233_Reg33
       desc: 93[15:8] Detector ADC Register 33 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm3233
+      name: DET_ADC_Tlm3233_Reg32
       desc: 93[7:0] Detector ADC Register 32 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm3435
+      name: DET_ADC_Tlm3435_Reg35
       desc: 94[15:8] Detector ADC Register 35 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm3435
+      name: DET_ADC_Tlm3435_Reg34
       desc: 94[7:0] Detector ADC Register 34 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm3637
+      name: DET_ADC_Tlm3637_Reg37
       desc: 95[15:8] Detector ADC Register 37 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm3637
+      name: DET_ADC_Tlm3637_Reg36
       desc: 95[7:0] Detector ADC Register 36 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm3839
+      name: DET_ADC_Tlm3839_Reg39
       desc: 96[15:8] Detector ADC Register 39 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm3839
+      name: DET_ADC_Tlm3839_Reg38
       desc: 96[7:0] Detector ADC Register 38 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm4041
+      name: DET_ADC_Tlm4041_Reg41
       desc: 97[15:8] Detector ADC Register 41 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm4041
+      name: DET_ADC_Tlm4041_Reg40
       desc: 97[7:0] Detector ADC Register 40 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm4243
+      name: DET_ADC_Tlm4243_Reg43
       desc: 98[15:8] Detector ADC Register 43 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm4243
+      name: DET_ADC_Tlm4243_Reg42
       desc: 98[7:0] Detector ADC Register 42 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm4445
+      name: DET_ADC_Tlm4445_Reg45
       desc: 99[15:8] Detector ADC Register 45 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm4445
+      name: DET_ADC_Tlm4445_Reg44
       desc: 99[7:0] Detector ADC Register 44 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm4647
+      name: DET_ADC_Tlm4647_Reg47
       desc: 100[15:8] Detector ADC Register 47 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm4647
+      name: DET_ADC_Tlm4647_Reg46
       desc: 100[7:0] Detector ADC Register 46 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm4849
+      name: DET_ADC_Tlm4849_Reg49
       desc: 101[15:8] Detector ADC Register 49 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm4849
+      name: DET_ADC_Tlm4849_Reg48
       desc: 101[7:0] Detector ADC Register 48 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm5051
+      name: DET_ADC_Tlm5051_Reg51
       desc: 102[15:8] Detector ADC Register 51 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm5051
+      name: DET_ADC_Tlm5051_Reg50
       desc: 102[7:0] Detector ADC Register 50 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm5253
+      name: DET_ADC_Tlm5253_Reg53
       desc: 103[15:8] Detector ADC Register 53 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm5253
+      name: DET_ADC_Tlm5253_Reg52
       desc: 103[7:0] Detector ADC Register 52 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm5455
+      name: DET_ADC_Tlm5455_Reg55
       desc: 104[15:8] Detector ADC Register 55 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm5455
+      name: DET_ADC_Tlm5455_Reg54
       desc: 104[7:0] Detector ADC Register 54 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm5657
+      name: DET_ADC_Tlm5657_Reg57
       desc: 105[15:8] Detector ADC Register 57 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm5657
+      name: DET_ADC_Tlm5657_Reg56
       desc: 105[7:0] Detector ADC Register 56 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm5859
+      name: DET_ADC_Tlm5859_Reg59
       desc: 106[15:8] Detector ADC Register 59 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm5859
+      name: DET_ADC_Tlm5859_Reg58
       desc: 106[7:0] Detector ADC Register 58 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm6061
+      name: DET_ADC_Tlm6061_Reg61
       desc: 107[15:8] Detector ADC Register 61 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm6061
+      name: DET_ADC_Tlm6061_Reg60
       desc: 107[7:0] Detector ADC Register 60 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm6263
+      name: DET_ADC_Tlm6263_Reg63
       desc: 108[15:8] Detector ADC Register 63 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
       type: MSB_U16
     - !Field
-      name: DET_ADC_Tlm6263
+      name: DET_ADC_Tlm6263_Reg62
       desc: 108[7:0] Detector ADC Register 62 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: AFS_WAVE
+      name: AFS_WAVE_Reserved
       desc: 109[15:14] Reserved
       mask: 0x02
       type: MSB_U16
@@ -662,7 +1016,7 @@
       desc: 110[15:0] AFS Run Count – indicates the number of waves to generate from the last command.
       type: MSB_U16
     - !Field
-      name: AFS_PHASE_DELAY
+      name: AFS_PHASE_DELAY_Reserved
       desc: 111[15:8] Reserved
       mask: 0x08
       type: MSB_U16
@@ -672,7 +1026,7 @@
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: DOOR_WAVE
+      name: DOOR_WAVE_Reserved
       desc: 112[15:14] Reserved
       mask: 0x02
       type: MSB_U16
@@ -682,15 +1036,15 @@
       bytes: '@prev'
       type: MSB_U16
     - !Field
-      name: Frame 1 Pixel
+      name: Frame_1_Pixel
       desc: 113[15:0] Frame 1 Pixel, the FlatSat mode frame 1 pixel value.
       type: MSB_U16
     - !Field
-      name: Frame 2 Pixel
+      name: Frame_2_Pixel
       desc: 114[15:0] Frame 2 Pixel, the FlatSat mode frame 2 pixel value.
       type: MSB_U16
     - !Field
-      name: FLATS_SAT_MODE
+      name: FLATS_SAT_MODE_Reserved
       desc: 115[15:1] Reserved
       mask: 0x0e
       type: MSB_U16
@@ -698,4 +1052,40 @@
       name: FLATS_SAT_MODE
       desc: 115[0] FLATS_SAT_MODE – indicates the current mode of the DRE FPGA. 
       bytes: '@prev'
+      type: MSB_U16
+    - !Field
+      name: Reserved_116
+      desc: 116[15:0] Reserved
+      type: MSB_U16
+    - !Field
+      name: Reserved_117
+      desc: 117[15:0] Reserved
+      type: MSB_U16
+    - !Field
+      name: Reserved_118
+      desc: 118[15:0] Reserved
+      type: MSB_U16
+    - !Field
+      name: Reserved_119
+      desc: 119[15:0] Reserved
+      type: MSB_U16
+    - !Field
+      name: Reserved_120
+      desc: 120[15:0] Reserved
+      type: MSB_U16
+    - !Field
+      name: Reserved_121
+      desc: 121[15:0] Reserved
+      type: MSB_U16
+    - !Field
+      name: Reserved_122
+      desc: 122[15:0] Reserved
+      type: MSB_U16
+    - !Field
+      name: Reserved_123
+      desc: 123[15:0] Reserved
+      type: MSB_U16
+    - !Field
+      name: Reserved_124
+      desc: 124[15:0] Reserved
       type: MSB_U16
