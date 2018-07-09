@@ -236,8 +236,96 @@
       desc: 
       type: MSB_U16
     - !Field
-      name: 
-      desc: 
+      name: CRYO_Tlm0
+      desc: 54[15:0] Cryo Cooler STATUS register read from Cryo Cooler. Refer to Cryo Cooler ICD for more information.
+      type: MSB_U16
+    - !Field
+      name: CRYO_Tlm1
+      desc: 55[15:0] Cryo Cooler RESERVED register read from Cryo Cooler. Refer to Cryo Cooler ICD for more information. 
+      type: MSB_U16
+    - !Field
+      name: CRYO_Tlm2
+      desc: 56[15:0] Cryo Cooler RESERVED register read from Cryo Cooler. Refer to Cryo Cooler ICD for more information. 
+      type: MSB_U16
+    - !Field
+      name: CRYO_Tlm3
+      desc: 57[15:0] Cryo Cooler RESERVED register read from Cryo Cooler. Refer to Cryo Cooler ICD for more information. 
+      type: MSB_U16
+    - !Field
+      name: CRYO_Tlm4
+      desc: 58[15:0] Cryo Cooler RESERVED register read from Cryo Cooler. Refer to Cryo Cooler ICD for more information. 
+      type: MSB_U16
+    - !Field
+      name: CRYO_Tlm5
+      desc: 59[15:0] Cryo Cooler CONTRL_TEMPERATURE register read from Cryo Cooler. Refer to Cryo Cooler ICD for more information.
+      type: MSB_U16
+    - !Field
+      name: CRYO_Tlm6
+      desc: 60[15:0] Cryo Cooler AUXILIARY_TEMPERATURE register read from Cryo Cooler. Refer to Cryo Cooler ICD for more information.
+      type: MSB_U16
+    - !Field
+      name: CRYO_Tlm7
+      desc: 61[15:0] Cryo Cooler BUS_CURRENT register read from Cryo Cooler. Refer to Cryo Cooler ICD for more information.
+      type: MSB_U16
+    - !Field
+      name: CRYO_Tlm8
+      desc: 62[15:0] Cryo Cooler BUS_VOLTAGE register read from Cryo Cooler. Refer to Cryo Cooler ICD for more information.
+      type: MSB_U16
+    - !Field
+      name: CRYO_Tlm9
+      desc: 63[15:0] Cryo Cooler OPERATING_MODE register read from Cryo Cooler. Refer to Cryo Cooler ICD for more information.
+      type: MSB_U16
+    - !Field
+      name: CRYO_Tlm10
+      desc: 64[15:0] Cryo Cooler COMP_FREQUENCY register read from Cryo Cooler. Refer to Cryo Cooler ICD for more information.
+      type: MSB_U16
+    - !Field
+      name: CRYO_Tlm11
+      desc: 65[15:0] Cryo Cooler TEMP_SET_POINT register read from Cryo Cooler. Refer to Cryo Cooler ICD for more information.
+      type: MSB_U16
+    - !Field
+      name: CRYO_Tlm12
+      desc: 66[15:0] Cryo Cooler MOTOR_DRIVE_VOLTAGE register read from Cryo Cooler. Refer to Cryo Cooler ICD for more information.
+      type: MSB_U16
+    - !Field
+      name: CRYO_Tlm13
+      desc: 67[15:0] Cryo Cooler INTEGRAL_SCALE_CTRL register read from Cryo Cooler. Refer to Cryo Cooler ICD for more information.
+      type: MSB_U16
+    - !Field
+      name: CRYO_Tlm14
+      desc: 68[15:0] Cryo Cooler PROPORTIONAL_SCALE_CTRL register read from Cryo Cooler. Refer to Cryo Cooler ICD for more information.
+      type: MSB_U16
+    - !Field
+      name: CRYO_Tlm15
+      desc: 69[15:0] Cryo Cooler PEAK_DRIVE_LIMIT register read from Cryo Cooler. Refer to Cryo Cooler ICD for more information.
+      type: MSB_U16
+    - !Field
+      name: CRYO_Tlm16
+      desc: 70[15:0] Cryo Cooler VERSION register read from Cryo Cooler. Refer to Cryo Cooler ICD for more information.
+      type: MSB_U16
+    - !Field
+      name: CRYO_Tlm17
+      desc: 71[15:0] Cryo Cooler MOTOR_A_PEAK_POSITIVE register read from Cryo Cooler. Refer to Cryo Cooler ICD for more information.
+      type: MSB_U16
+    - !Field
+      name: CRYO_Tlm18
+      desc: 72[15:0] Cryo Cooler MOTOR_A_PEAK_NEGATIVE register read from Cryo Cooler. Refer to Cryo Cooler ICD for more information.
+      type: MSB_U16
+    - !Field
+      name: CRYO_Tlm19
+      desc: 73[15:0] Cryo Cooler MOTOR_B_PEAK_POSITIVE register read from Cryo Cooler. Refer to Cryo Cooler ICD for more information.
+      type: MSB_U16
+    - !Field
+      name: CRYO_Tlm20
+      desc: 74[15:0] Cryo Cooler MOTOR_B_PEAK_NEGATIVE register read from Cryo Cooler. Refer to Cryo Cooler ICD for more information.
+      type: MSB_U16
+    - !Field
+      name: CRYO_Tlm21
+      desc: 75[15:0] Cryo Cooler RESERVED register read from Cryo Cooler. Refer to Cryo Cooler ICD for more information.
+      type: MSB_U16
+    - !Field
+      name: CRYO_Tlm22
+      desc: 76[15:0] Cryo Cooler MOTOR_B_AMPLITUDE register read from Cryo Cooler. Refer to Cryo Cooler ICD for more information.
       type: MSB_U16
     - !Field
       name: DET_ADC_Tlm01
@@ -378,7 +466,8 @@
       name: DET_ADC_Tlm2627
       desc: 90[7:0] Detector ADC Register 26 – The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details.
       bytes: '@prev'
-      type: MSB_U16- !Field
+      type: MSB_U16
+    - !Field
       name: DET_ADC_Tlm2829
       desc: 91[15:8] Detector ADC Register 29 - The value in the LM98640QML register. Refer to the LM98640QML datasheet for more details
       mask: 0x08
